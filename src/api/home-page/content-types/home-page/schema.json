@@ -20,7 +20,6 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.info-section",
         "blocks.hero-section"
       ]
     }
