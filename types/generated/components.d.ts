@@ -19,12 +19,12 @@ export interface BlocksInfoBlock extends Struct.ComponentSchema {
     displayName: 'Info Block';
   };
   attributes: {
-    Description: Schema.Attribute.Text;
+    description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     primaryCta: Schema.Attribute.Component<'elements.link', false>;
     reversed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     secondaryCta: Schema.Attribute.Component<'elements.link', false>;
-    Title: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
