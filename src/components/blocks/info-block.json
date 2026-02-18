@@ -42,6 +42,15 @@
         "medium",
         "large"
       ]
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "default": "none",
+      "enum": [
+        "none",
+        "blue",
+        "oceanblue"
+      ]
     }
   },
   "config": {}

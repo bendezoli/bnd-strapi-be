@@ -19,6 +19,10 @@ export interface BlocksInfoBlock extends Struct.ComponentSchema {
     displayName: 'Info Block';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.Enumeration<
+      ['none', 'blue', 'oceanblue']
+    > &
+      Schema.Attribute.DefaultTo<'none'>;
     description: Schema.Attribute.RichText;
     image: Schema.Attribute.Media<'images'>;
     padding: Schema.Attribute.Enumeration<
