@@ -31,6 +31,17 @@
       "type": "component",
       "component": "elements.link",
       "repeatable": false
+    },
+    "padding": {
+      "type": "enumeration",
+      "required": true,
+      "default": "none",
+      "enum": [
+        "none",
+        "small",
+        "medium",
+        "large"
+      ]
     }
   },
   "config": {}
