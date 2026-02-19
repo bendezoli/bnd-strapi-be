@@ -1,5 +1,26 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksFeaturedArticle extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_featured_articles';
+  info: {
+    displayName: 'Featured Article';
+  };
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    headingTag: Schema.Attribute.Enumeration<
+      ['h2', 'h3', 'h4', 'h5', 'h6', 'p']
+    > &
+      Schema.Attribute.DefaultTo<'p'>;
+    image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.Component<'elements.link', false>;
+    reversed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_hero_sections';
   info: {
@@ -24,6 +45,10 @@ export interface BlocksInfoBlock extends Struct.ComponentSchema {
     > &
       Schema.Attribute.DefaultTo<'none'>;
     description: Schema.Attribute.RichText;
+    headingTag: Schema.Attribute.Enumeration<
+      ['h2', 'h3', 'h4', 'h5', 'h6', 'p']
+    > &
+      Schema.Attribute.DefaultTo<'p'>;
     image: Schema.Attribute.Media<'images'>;
     padding: Schema.Attribute.Enumeration<
       ['none', 'small', 'medium', 'large']
@@ -34,6 +59,22 @@ export interface BlocksInfoBlock extends Struct.ComponentSchema {
     reversed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     secondaryCta: Schema.Attribute.Component<'elements.link', false>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksSubscribe extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_subscribes';
+  info: {
+    displayName: 'Subscribe';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    content: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    headline: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
   };
 }
 
@@ -88,8 +129,10 @@ export interface LayoutHeader extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.featured-article': BlocksFeaturedArticle;
       'blocks.hero-section': BlocksHeroSection;
       'blocks.info-block': BlocksInfoBlock;
+      'blocks.subscribe': BlocksSubscribe;
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
       'layout.footer': LayoutFooter;
