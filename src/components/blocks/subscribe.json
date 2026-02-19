@@ -17,6 +17,37 @@
     },
     "buttonText": {
       "type": "string"
+    },
+    "headingTag": {
+      "type": "enumeration",
+      "default": "p",
+      "enum": [
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "p"
+      ]
+    },
+    "padding": {
+      "type": "enumeration",
+      "default": "none",
+      "enum": [
+        "none",
+        "small",
+        "medium",
+        "large"
+      ]
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "default": "none",
+      "enum": [
+        "none",
+        "blue",
+        "oceanblue"
+      ]
     }
   },
   "config": {}

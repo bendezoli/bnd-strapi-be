@@ -6,6 +6,10 @@ export interface BlocksFeaturedArticle extends Struct.ComponentSchema {
     displayName: 'Featured Article';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.Enumeration<
+      ['none', 'blue', 'oceanblue']
+    > &
+      Schema.Attribute.DefaultTo<'none'>;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 100;
@@ -16,6 +20,10 @@ export interface BlocksFeaturedArticle extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'p'>;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.Component<'elements.link', false>;
+    padding: Schema.Attribute.Enumeration<
+      ['none', 'small', 'medium', 'large']
+    > &
+      Schema.Attribute.DefaultTo<'none'>;
     reversed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.String;
   };
@@ -68,12 +76,24 @@ export interface BlocksSubscribe extends Struct.ComponentSchema {
     displayName: 'Subscribe';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.Enumeration<
+      ['none', 'blue', 'oceanblue']
+    > &
+      Schema.Attribute.DefaultTo<'none'>;
     buttonText: Schema.Attribute.String;
     content: Schema.Attribute.Text &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 100;
       }>;
+    headingTag: Schema.Attribute.Enumeration<
+      ['h2', 'h3', 'h4', 'h5', 'h6', 'p']
+    > &
+      Schema.Attribute.DefaultTo<'p'>;
     headline: Schema.Attribute.String;
+    padding: Schema.Attribute.Enumeration<
+      ['none', 'small', 'medium', 'large']
+    > &
+      Schema.Attribute.DefaultTo<'none'>;
     placeholder: Schema.Attribute.String;
   };
 }
